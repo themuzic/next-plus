@@ -2,8 +2,17 @@ import Slider from "react-slick";
 import "node_modules/slick-carousel/slick/slick.css";
 import "node_modules/slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
+import { useCallback, useState } from "react";
 
 const AutoSlider2 = ({ list, dv }) => {
+  const [dragging, setDragging] = useState(false);
+  const handleBeforeChange = useCallback(() => {
+    setDragging(true);
+  }, [setDragging]);
+
+  const handleAfterChange = useCallback(() => {
+    setDragging(false);
+  }, [setDragging]);
   const router = useRouter();
   let settings = {
     dots: false,
@@ -17,7 +26,8 @@ const AutoSlider2 = ({ list, dv }) => {
     arrows: false,
     className: "center",
     centerMode: true,
-    // centerPadding: "60px",
+    beforeChange: handleBeforeChange,
+    afterChange: handleAfterChange,
     cssEase: "linear",
     speed: 400,
     responsive: [
@@ -30,16 +40,21 @@ const AutoSlider2 = ({ list, dv }) => {
     ],
   };
 
-  const onClick = (obj) => {
-    const classes = window.event.target.parentNode.parentNode.classList;
-    if (classes.contains("slick-active")) {
-      let title;
-      if (dv === "movies") {
-        title = obj.original_title;
-      } else {
-        title = obj.original_name;
+  const onClick = (e, obj) => {
+    if (dragging) {
+      e.stopPropagation();
+      return;
+    } else {
+      const classes = window.event.target.parentNode.parentNode.classList;
+      if (classes.contains("slick-active")) {
+        let title;
+        if (dv === "movies") {
+          title = obj.original_title;
+        } else {
+          title = obj.original_name;
+        }
+        router.push(`/${dv}/${title}/${obj.id}`);
       }
-      router.push(`/${dv}/${title}/${obj.id}`);
     }
   };
 
@@ -51,7 +66,7 @@ const AutoSlider2 = ({ list, dv }) => {
             <div
               className="movie_wrap"
               key={obj.id}
-              onClick={() => onClick(obj)}
+              onClick={(event) => onClick(event, obj)}
             >
               <div className="movie">
                 <img src={`http://image.tmdb.org/t/p/w500${obj.poster_path}`} />
