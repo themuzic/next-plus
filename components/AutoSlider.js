@@ -10,7 +10,7 @@ const AutoSlider2 = ({ list, dv }) => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     draggable: true,
     autoplaySpeed: 4000,
     variableWidth: true,
