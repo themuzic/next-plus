@@ -10,7 +10,7 @@ const AutoSlider2 = ({ list, dv }) => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     draggable: true,
     autoplaySpeed: 4000,
     variableWidth: true,
@@ -110,6 +110,7 @@ const AutoSlider2 = ({ list, dv }) => {
           .movie_wrap {
             position: relative;
             transition: transform 0.2s ease-in-out;
+            border-radius: 12px;
           }
           .movie_wrap::after {
             border-radius: 12px;
@@ -145,13 +146,16 @@ const AutoSlider2 = ({ list, dv }) => {
             .slider_bg {
               padding: 40px 0 50px;
             }
+            .slick-active .movie_wrap {
+              transform: scale(1.03, 1.03) translateZ(0px)
+                translate3d(0px, 0px, 0px);
+              cursor: pointer;
+            }
             .slick-center .movie_wrap {
               transform: scale(1.05, 1.05) translateZ(0px)
                 translate3d(0px, 0px, 0px);
             }
             .slick-active:hover .movie_wrap {
-              box-shadow: rgb(0 0 0/80%) 0px 15px 50px 10px,
-                rgb(0 0 0/72%) 0px 35px 22px -10px;
               transform: scale(1.05, 1.05) translateZ(0px)
                 translate3d(0px, 0px, 0px);
             }

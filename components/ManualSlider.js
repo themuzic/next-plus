@@ -150,6 +150,7 @@ const ManualSlider = ({ list, dv }) => {
             position: relative;
             transition: transform 0.2s ease-in-out;
             cursor: pointer;
+            border-radius: 12px;
           }
           .movie_wrap::after {
             border-radius: 12px;
@@ -179,12 +180,42 @@ const ManualSlider = ({ list, dv }) => {
             border-radius: 12px;
             position: absolute;
           }
+          .slick-prev,
+          .slick-next {
+            top: 0;
+            width: calc(3.5vw + 24px);
+            height: 100%;
+            padding: 0;
+            cursor: pointer;
+            z-index: 100;
+          }
+          .slick-next:before,
+          .slick-prev:before {
+            font-size: 30px;
+            opacity: 0.3;
+            transition: opacity 0.2s ease-in-out;
+          }
+          .slick-next {
+            right: 0;
+            transform: translateX(90%);
+          }
+          .slick-prev {
+            left: 0;
+            transform: translateX(-90%);
+          }
+          .slick-prev.slick-disabled:before,
+          .slick-next.slick-disabled:before {
+            opacity: 0;
+          }
           @media (max-width: 1024px) {
             .slider_bg {
               padding: 35px 0 65px;
             }
           }
           @media (max-width: 640px) {
+            .slider_wrap {
+              width: calc(100vw - 5vw - 24px);
+            }
             .slick-next {
               margin-right: 13px;
             }
