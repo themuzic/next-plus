@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import Slider from "react-slick";
 import "node_modules/slick-carousel/slick/slick.css";
-import "node_modules/slick-carousel/slick/slick-theme.css";
+import "node_modules/slick-carousel/slick/slick-theme.css?2";
 import { useRouter } from "next/router";
 
 const ManualSlider = ({ list, dv }) => {
@@ -180,21 +180,6 @@ const ManualSlider = ({ list, dv }) => {
             border-radius: 12px;
             position: absolute;
           }
-          .slick-prev,
-          .slick-next {
-            top: 0;
-            width: calc(3.5vw + 24px);
-            height: 100%;
-            padding: 0;
-            cursor: pointer;
-            z-index: 100;
-          }
-          .slick-next:before,
-          .slick-prev:before {
-            font-size: 30px;
-            opacity: 0.3;
-            transition: opacity 0.2s ease-in-out;
-          }
           .slick-next {
             right: 0;
             transform: translateX(90%);
@@ -202,10 +187,6 @@ const ManualSlider = ({ list, dv }) => {
           .slick-prev {
             left: 0;
             transform: translateX(-90%);
-          }
-          .slick-prev.slick-disabled:before,
-          .slick-next.slick-disabled:before {
-            opacity: 0;
           }
           @media (max-width: 1024px) {
             .slider_bg {

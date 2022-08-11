@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import Slider from "react-slick";
 import YouTube from "react-youtube";
 import "node_modules/slick-carousel/slick/slick.css";
-import "node_modules/slick-carousel/slick/slick-theme.css";
+import "node_modules/slick-carousel/slick/slick-theme.css?2";
 
 const VideoSlider = ({ list }) => {
   const [dragging, setDragging] = useState(false);
@@ -109,6 +109,20 @@ const VideoSlider = ({ list }) => {
             position: absolute;
             width: 100% !important;
             height: 100% !important;
+          }
+          .slick-next {
+            right: 0;
+            transform: translateX(90%);
+          }
+          .slick-prev {
+            left: 0;
+            transform: translateX(-95%);
+          }
+
+          @media (max-width: 640px) {
+            .slick-next {
+              margin-right: 15px;
+            }
           }
         `}
       </style>
