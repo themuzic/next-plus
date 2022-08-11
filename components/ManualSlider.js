@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import Slider from "react-slick";
-import "node_modules/slick-carousel/slick/slick.css?1";
+import "node_modules/slick-carousel/slick/slick.css";
 import "node_modules/slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 
@@ -126,6 +126,9 @@ const ManualSlider = ({ list, dv }) => {
           }
           .slick-list {
             overflow: visible;
+          }
+          .slick-slide {
+            padding: 0 15px;
           }
           .slick-slide img {
             transform: scale(1);
