@@ -1,7 +1,7 @@
 const version = Date.now();
 import Slider from "react-slick";
-import "node_modules/slick-carousel/slick/slick.css?";
-import "node_modules/slick-carousel/slick/slick-theme.css?3";
+import "node_modules/slick-carousel/slick/slick.css";
+import "node_modules/slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 
