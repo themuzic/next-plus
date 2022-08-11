@@ -82,7 +82,11 @@ const AutoSlider2 = ({ list, dv }) => {
             display: flex;
           }
           .slick-slide {
+            opacity: 0.4;
             padding: 0 25px;
+          }
+          .slick-active {
+            opacity: 1;
           }
           .slick-center {
             padding: 0 40px;
