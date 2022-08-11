@@ -1,10 +1,11 @@
+const version = Date.now();
 import Slider from "react-slick";
-import "node_modules/slick-carousel/slick/slick.css";
-import "node_modules/slick-carousel/slick/slick-theme.css";
+import "node_modules/slick-carousel/slick/slick.css?";
+import "node_modules/slick-carousel/slick/slick-theme.css?3";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 
-const AutoSlider2 = ({ list, dv }) => {
+const AutoSlider = ({ list, dv }) => {
   const [dragging, setDragging] = useState(false);
   const handleBeforeChange = useCallback(() => {
     setDragging(true);
@@ -45,7 +46,7 @@ const AutoSlider2 = ({ list, dv }) => {
       e.stopPropagation();
       return;
     } else {
-      const classes = window.event.target.parentNode.parentNode.classList;
+      const classes = e.target.parentNode.parentNode.classList;
       if (classes.contains("slick-active")) {
         let title;
         if (dv === "movies") {
@@ -185,4 +186,4 @@ const AutoSlider2 = ({ list, dv }) => {
   );
 };
 
-export default AutoSlider2;
+export default AutoSlider;

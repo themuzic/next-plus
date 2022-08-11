@@ -1,11 +1,12 @@
 import Seo from "components/Seo";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import AutoSlider from "components/AutoSlider";
 
 export default function Home() {
-  const AutoSliderNoSSR = dynamic(() => import("components/AutoSlider"), {
-    ssr: false,
-  });
+  // const AutoSliderNoSSR = dynamic(() => import("components/AutoSlider"), {
+  //   ssr: false,
+  // });
   const [movies, setMovies] = useState([]);
   const [tvs, setTvs] = useState([]);
   useEffect(() => {
@@ -24,18 +25,19 @@ export default function Home() {
   return (
     <div className="container">
       <Seo title="Home" />
-      {movies && (
-        <div className="contents_row">
-          <h4>Movies</h4>
-          <AutoSliderNoSSR list={movies} dv="movies" />
-        </div>
+      {movies && tvs && (
+        <>
+          <div className="contents_row">
+            <h4>Movies</h4>
+            <AutoSlider list={movies} dv="movies" />
+          </div>
+          <div className="contents_row">
+            <h4>TV</h4>
+            <AutoSlider list={tvs} dv="tv" />
+          </div>
+        </>
       )}
-      {tvs && (
-        <div className="contents_row">
-          <h4>TV</h4>
-          <AutoSliderNoSSR list={tvs} dv="tv" />
-        </div>
-      )}
+
       <style jsx>{`
         .container {
           display: grid;

@@ -2,11 +2,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Seo from "components/Seo";
 import dynamic from "next/dynamic";
+import VideoSlider from "components/VideoSlider";
 
 export default function Detail() {
-  const VideoSliderNoSSR = dynamic(() => import("components/VideoSlider"), {
-    ssr: false,
-  });
+  // const VideoSliderNoSSR = dynamic(() => import("components/VideoSlider"), {
+  //   ssr: false,
+  // });
   const [tv, setTv] = useState();
   const [videos, setVideos] = useState();
   const [title, setTitle] = useState();
@@ -92,7 +93,7 @@ export default function Detail() {
                 <div className="video_section">
                   <h2>Teaser</h2>
                   <div>
-                    <VideoSliderNoSSR list={videos} />
+                    <VideoSlider list={videos} />
                   </div>
                 </div>
               )}
