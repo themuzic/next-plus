@@ -188,6 +188,23 @@ const ManualSlider = ({ list, dv }) => {
             left: 0;
             transform: translateX(-90%);
           }
+          .slick-prev,
+          .slick-next {
+            top: 0;
+            width: calc(3.5vw + 24px);
+            height: 100%;
+            z-index: 100;
+          }
+          .slick-prev.slick-disabled:before,
+          .slick-next.slick-disabled:before {
+            opacity: 0;
+          }
+          .slick-prev:before,
+          .slick-next:before {
+            font-size: 30px;
+            opacity: 0.3;
+            transition: opacity 0.2s ease-in-out;
+          }
           @media (max-width: 1024px) {
             .slider_bg {
               padding: 35px 0 65px;
