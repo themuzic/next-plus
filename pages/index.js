@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import AutoSlider from "components/AutoSlider";
 
 export default function Home() {
-  // const AutoSliderNoSSR = dynamic(() => import("components/AutoSlider"), {
-  //   ssr: false,
-  // });
+  const AutoSliderNoSSR = dynamic(() => import("components/AutoSlider"), {
+    ssr: false,
+  });
   const [movies, setMovies] = useState([]);
   const [tvs, setTvs] = useState([]);
   useEffect(() => {
@@ -29,11 +29,11 @@ export default function Home() {
         <>
           <div className="contents_row">
             <h4>Movies</h4>
-            <AutoSlider list={movies} dv="movies" />
+            <AutoSliderNoSSR list={movies} dv="movies" />
           </div>
           <div className="contents_row">
             <h4>TV</h4>
-            <AutoSlider list={tvs} dv="tv" />
+            <AutoSliderNoSSR list={tvs} dv="tv" />
           </div>
         </>
       )}
