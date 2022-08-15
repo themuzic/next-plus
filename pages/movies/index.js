@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import ManualSlider from "components/ManualSlider";
 
 export default function MovieHome() {
-  // const ManualSliderNoSSR = dynamic(() => import("components/ManualSlider"), {
-  //   ssr: false,
-  // });
+  const ManualSliderNoSSR = dynamic(() => import("components/ManualSlider"), {
+    ssr: false,
+  });
   const [popular, setPopular] = useState([]);
   const [latest, setLatest] = useState([]);
   const [vote, setVote] = useState([]);
@@ -33,15 +33,15 @@ export default function MovieHome() {
         <>
           <div className="contents_row">
             <h4>Popular</h4>
-            <ManualSlider list={popular} dv="movies" />
+            <ManualSliderNoSSR list={popular} dv="movies" />
           </div>
           <div className="contents_row">
             <h4>Latest</h4>
-            <ManualSlider list={latest} dv="movies" />
+            <ManualSliderNoSSR list={latest} dv="movies" />
           </div>
           <div className="contents_row">
             <h4>Top Rated</h4>
-            <ManualSlider list={vote} dv="movies" />
+            <ManualSliderNoSSR list={vote} dv="movies" />
           </div>
         </>
       )}
