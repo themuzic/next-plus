@@ -82,8 +82,8 @@ const ManualSlider = ({ list, dv }) => {
       {
         breakpoint: 510,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
@@ -219,6 +219,13 @@ const ManualSlider = ({ list, dv }) => {
             }
             .slick-prev {
               margin-left: 13px;
+            }
+            .slick-active:hover .movie_wrap {
+              transform: scale(1.02, 1.02) translateZ(0px)
+                translate3d(0px, 0px, 0px);
+              transition-duration: 300ms;
+              transition-property: transform, box-shadow;
+              transition-timing-function: ease-out;
             }
           }
         `}

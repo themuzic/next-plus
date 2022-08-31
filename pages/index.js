@@ -1,7 +1,6 @@
 import Seo from "components/Seo";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import AutoSlider from "components/AutoSlider";
 
 export default function Home() {
   const AutoSliderNoSSR = dynamic(() => import("components/AutoSlider"), {
